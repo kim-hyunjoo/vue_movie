@@ -1,10 +1,9 @@
 <script setup lang="ts">
-//import MovieSearch from '~/components/MovieSearch.vue'
-import Header from './components/Header.vue'
+import MovieSearch from './components/MovieSearch.vue'
 </script>
 <template>
   <main>
-    <Header />
+    <MovieSearch />
     <RouterView />
   </main>
 </template>

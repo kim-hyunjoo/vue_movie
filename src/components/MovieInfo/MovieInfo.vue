@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useMovieStore } from '~/store/movie'
 import { ref } from 'vue'
-import Modal from './Modal.vue'
+import Modal from '~/components/utils/Modal.vue'
 
 const movieStore = useMovieStore()
 

@@ -8,12 +8,14 @@ const title = ref('')
 const router = useRouter()
 
 async function searchMovies() {
+  movieStore.$reset() // 모든 상태 초기화!
   if (title.value.trim().length === 0) {
     return
   }
   await movieStore.fetchMovies(title.value)
   router.push(`/search`)
 }
+
 function resetMovies() {
   title.value = ''
   movieStore.$reset() // 모든 상태 초기화!
@@ -67,6 +69,7 @@ h1 {
     height: 50px;
     margin-right: 10px;
     width: 50px;
+    background-image: var(--button-color);
   }
 }
 </style>

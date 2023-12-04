@@ -7,5 +7,6 @@ div {
   display: flex;
   justify-content: center;
   text-align: center;
+  margin: 30px;
 }
 </style>

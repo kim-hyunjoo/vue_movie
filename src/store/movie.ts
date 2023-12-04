@@ -1,77 +1,35 @@
 import axios from 'axios'
 import { defineStore } from 'pinia'
-
-export type Movies = Movie[]
-export interface Movie {
-  Title: string
-  Year: string
-  imdbID: string
-  Type: string
-  Poster: string
-}
-
-interface MovieDetail {
-  Title: string
-  Year: string
-  Rated: string
-  Released: string
-  Runtime: string
-  Genre: string
-  Director: string
-  Writer: string
-  Actors: string
-  Plot: string
-  Language: string
-  Country: string
-  Awards: string
-  Poster: string
-  Ratings: {
-    Source: string
-    Value: string
-  }[]
-  Metascore: string
-  imdbRating: string
-  imdbVotes: string
-  imdbID: string
-  Type: string
-  DVD: string
-  BoxOffice: string
-  Production: string
-  Website: string
-  Response: string
-}
+import type { Movies, MovieDetail } from '~/types/types'
 
 export const useMovieStore = defineStore('movie', {
   state: () => ({
     movies: [] as Movies,
     totalResults: 0 as number,
     isLoading: false as boolean,
-    movieDetails: {} as MovieDetail
+    movieDetails: {} as MovieDetail,
+    searchWord: '' as string,
+    page: 1 as number
   }),
-  getters: {
-    //좀 가공된 계산된 상태!
-    /*
-    filteredMovies(state) {
-      return state.movies
-        .filter((movie) => Number(movie.Year) > 2010)
-        .sort((a, b) => Number(b.Year) - Number(a.Year))
-    }
-    */
-  },
   actions: {
-    async fetchMovies(title: string) {
+    async fetchMovies(title?: string) {
       this.isLoading = true
+      if (title != null) {
+        this.searchWord = title
+      }
       try {
         const res = await axios('/api/movieSearch', {
           method: 'GET',
-          params: { title }
+          params: {
+            title: this.searchWord,
+            page: this.page++
+          }
         })
-        console.log(res)
         if (res.status !== 200) {
           throw new Error('API 처리 중 오류 발생')
         }
         const { Search, totalResults } = res.data
-        this.movies = Search || []
+        this.movies = [...this.movies, ...Search]
         this.totalResults = totalResults || 0
       } catch (e) {
         if (e instanceof Error) {

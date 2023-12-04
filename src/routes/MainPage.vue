@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Loading from '~/components/Loading.vue'
+import Loading from '~/components/utils/Loading.vue'
 import { useMovieStore } from '~/store/movie'
 
 const movieStore = useMovieStore()
@@ -8,6 +8,6 @@ const movieStore = useMovieStore()
 <template>
   <main>
     <Loading v-if="movieStore.isLoading"></Loading>
-    <RouterView v-else></RouterView>
+    <RouterView></RouterView>
   </main>
 </template>

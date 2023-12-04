@@ -8,6 +8,7 @@ body {
   --border-color: #DDD; /* import 안해도 body안에서 모두 이 변수로 사용가능*/
   --item-height: 80px;
   background-image: linear-gradient(125deg, royalblue, brown);
+  --button-color: linear-gradient(125deg, pink, lightblue);
   min-height: 100vh;
   padding: 70px 20px;
   box-sizing: border-box;

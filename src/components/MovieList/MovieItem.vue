@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Movie } from '~/store/movie'
+import type { Movie } from '~/types/types'
 import { useMovieStore } from '~/store/movie'
 import { useRouter } from 'vue-router'
 
