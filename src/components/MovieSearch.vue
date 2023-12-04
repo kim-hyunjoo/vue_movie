@@ -37,8 +37,13 @@ function gotoHome() {
 
 <style scoped lang="scss">
 h1 {
+  color: #fff;
   cursor: pointer;
   text-align: center;
+  font-size: 60px;
+  @media screen and (max-width: 700px) {
+    font-size: 40px;
+  }
 }
 .search {
   height: 100px;

@@ -76,17 +76,24 @@ function modalClose() {
     @click="modalClose"></Modal>
 </template>
 <style scoped lang="scss">
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .movie-title {
   display: flex;
   padding: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   font-size: 60px;
   color: #fff;
-  @media screen and (max-width: 768px) {
-    width: 200px;
-    font-size: 28px;
+  @media screen and (max-width: 700px) {
+    //width: 200px;
+    font-size: 30px;
   }
 }
 
@@ -100,7 +107,7 @@ function modalClose() {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 700px) {
     flex-direction: column;
   }
 
@@ -108,9 +115,8 @@ function modalClose() {
     width: 400px;
     cursor: pointer;
     border-radius: 20px;
-    @media screen and (max-width: 768px) {
-      width: 200px;
-      height: 300px;
+    @media screen and (max-width: 700px) {
+      width: 80%;
     }
   }
   .detail-text-container {
@@ -119,15 +125,15 @@ function modalClose() {
     flex-direction: column;
 
     .span-title {
-      font-size: 30px;
+      font-size: 20px;
       color: #fff;
-      @media screen and (max-width: 768px) {
-        font-size: 24px;
+      @media screen and (max-width: 700px) {
+        font-size: 20px;
       }
     }
     .span-text {
       font-size: 20px;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 700px) {
         font-size: 20px;
       }
     }

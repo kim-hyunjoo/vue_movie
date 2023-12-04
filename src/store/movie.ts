@@ -70,7 +70,6 @@ export const useMovieStore = defineStore('movie', {
           throw new Error('API 처리 중 오류 발생')
         }
         const { Search, totalResults } = res.data
-        console.log(Search, totalResults)
         this.movies = Search || []
         this.totalResults = totalResults || 0
       } catch (e) {
