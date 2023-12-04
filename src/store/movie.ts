@@ -67,7 +67,7 @@ export const useMovieStore = defineStore('movie', {
           params: { title }
         })
         console.log(res)
-        if (res.statusText !== 'OK') {
+        if (res.status !== 200) {
           throw new Error('API 처리 중 오류 발생')
         }
         const { Search, totalResults } = res.data
@@ -87,7 +87,7 @@ export const useMovieStore = defineStore('movie', {
           method: 'GET',
           params: { id }
         })
-        if (res.statusText !== 'OK') {
+        if (res.status !== 200) {
           throw new Error('API 처리 중 오류 발생')
         }
         this.movieDetails = res.data
