@@ -66,6 +66,7 @@ export const useMovieStore = defineStore('movie', {
           method: 'GET',
           params: { title }
         })
+        console.log(res)
         if (res.statusText !== 'OK') {
           throw new Error('API 처리 중 오류 발생')
         }
