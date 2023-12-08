@@ -33,7 +33,7 @@ const onClickMovie = async () => {
     <img
       class="movie-poster"
       :src="Poster"
-      onerror="this.onerror=null; this.src='src/assets/imageLoadingFail.png'"
+      onerror="this.onerror=null; this.src='/src/assets/imageLoadingFail.png'"
       @click="onClickMovie" />
   </div>
 </template>
