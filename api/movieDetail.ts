@@ -7,7 +7,7 @@ interface RequestBody {
 }
 
 export default async function (req: VercelRequest, res: VercelResponse) {
-  const { id }: Partial<RequestBody> = req.body
+  const { id }: Partial<RequestBody> = req.query
   const { data: responseValue } = await axios(
     `https://omdbapi.com/?apikey=${APIKEY}&i=${id}&plot=short`
   )
