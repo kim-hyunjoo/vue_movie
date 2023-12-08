@@ -14,7 +14,8 @@ const movieStore = useMovieStore()
 
 async function fetchMovieDetails(id: string) {
   await movieStore.fetchMovieDetails(id)
-  movieStore.movieDetails.Poster = movieStore.movieDetails.Poster.replace(
+  console.log(Poster)
+  movieStore.movieDetails.Poster = movieStore.movieDetails.Poster?.replace(
     'SX300',
     'SX700'
   )
